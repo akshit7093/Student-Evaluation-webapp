@@ -1,0 +1,16 @@
+[
+    {
+        "username": "admin1",
+        "admin_id": "A001",
+        "password": "adminpass1",
+        "role": "admin",
+        "branches": ["Computer_Science", "Electronics"]
+    },
+    {
+        "username": "admin2",
+        "admin_id": "A002",
+        "password": "adminpass2",
+        "role": "admin",
+        "branches": ["Computer_Science", "Electronics"]
+    }
+]

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ student.personal_info.name }} - Full Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student_full_view.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/student_full_view.js') }}" defer></script>
+</head>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a> >
+            <a href="{{ url_for('all_students') }}">Students</a> >
+            {{ student.personal_info.name }}
+        </nav>
+
+        <div class="profile-header">
+            <h1>{{ student.personal_info.name }}</h1>
+            <span class="enrollment-badge">{{ student.enrollment }}</span>
+        </div>
+
+        <div class="profile-grid">
+            <section class="personal-info">
+                <h2><i class="fas fa-user"></i> Personal Information</h2>
+                <div class="info-card">
+                    <p><strong>Email:</strong> {{ student.personal_info.email }}</p>
+                    <p><strong>Phone:</strong> {{ student.personal_info.phone }}</p>
+                    <p><strong>Date of Birth:</strong> {{ student.personal_info.dob }}</p>
+                    <p><strong>Address:</strong> {{ student.personal_info.address }}</p>
+                </div>
+            </section>
+
+            <section class="academic-info">
+                <h2><i class="fas fa-graduation-cap"></i> Academic Information</h2>
+                <div class="info-card">
+                    <p><strong>Branch:</strong> {{ student.academic_info.branch }}</p>
+                    <p><strong>Year:</strong> {{ student.academic_info.year }}</p>
+                    <p><strong>Semester:</strong> {{ student.academic_info.semester }}</p>
+                    <p><strong>CGPA:</strong> {{ student.academic_info.cgpa }}</p>
+                </div>
+            </section>
+
+            <section class="documents">
+                <h2><i class="fas fa-folder"></i> Documents</h2>
+                <div class="documents-grid">
+                    <div class="doc-section">
+                        <h3><i class="fas fa-tasks"></i> Assignments</h3>
+                        <div class="file-list">
+                            {% for file in assignments %}
+                            <div class="file-item">
+                                <span>{{ file }}</span>
+                                <a href="{{ url_for('download_file', type='assignments', filename=file, enrollment=student.enrollment) }}" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3><i class="fas fa-project-diagram"></i> Projects</h3>
+                        <div class="file-list">
+                            {% for file in projects %}
+                            <div class="file-item">
+                                <span>{{ file }}</span>
+                                <a href="{{ url_for('download_file', type='projects', filename=file, enrollment=student.enrollment) }}" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3><i class="fas fa-file-alt"></i> Reports</h3>
+                        <div class="file-list">
+                            {% for file in reports %}
+                            <div class="file-item">
+                                <span>{{ file }}</span>
+                                <a href="{{ url_for('download_file', type='reports', filename=file, enrollment=student.enrollment) }}" class="download-btn">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/student_full_view.js') }}" defer></script>
+</body>
+</html>

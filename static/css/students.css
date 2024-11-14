@@ -1,0 +1,132 @@
+:root {
+    --primary-color: #007bff;
+    --background-light: #f8f9fa;
+    --text-primary: #2c3e50;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.breadcrumb a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.students-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.search-box input {
+    border: none;
+    padding: 8px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+}
+
+.students-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.student-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.view-btn, .full-view-btn {
+    display: flex;
+    align-items: center;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.view-btn:hover, .full-view-btn:hover {
+    background: #0056b3;
+}
+
+.student-details {
+    display: none;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.files-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.section-box {
+    background: var(--background-light);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+}
+
+.section-box h4 {
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.file-list {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.file-item {
+    padding: 8px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.file-item:hover {
+    background: var(--background-light);
+}
+
+.download-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}

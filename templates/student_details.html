@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details - {{ student.personal_info.name }}</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/student_details.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a> >
+            <a href="{{ url_for('view_year', branch_name=student.academic_info.branch, year=student.academic_info.year) }}">
+                {{ student.academic_info.branch }} Year {{ student.academic_info.year }}
+            </a> >
+            {{ student.personal_info.name }}
+        </nav>
+
+        <div class="student-profile">
+            <div class="profile-header">
+                <h1>{{ student.personal_info.name }}</h1>
+                <span class="enrollment">{{ student.enrollment }}</span>
+            </div>
+
+            <div class="profile-details">
+                <div class="info-section">
+                    <h2>Personal Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Email:</label>
+                            <span>{{ student.personal_info.email }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Phone:</label>
+                            <span>{{ student.personal_info.phone }}</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Date of Birth:</label>
+                            <span>{{ student.personal_info.dob }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="files-section">
+                    <div class="section-assignments">
+                        <h2>Assignments</h2>
+                        <div class="file-grid">
+                            {% for file in assignments %}
+                            <div class="file-card">
+                                <span class="file-name">{{ file }}</span>
+                                <a href="#" class="download-btn">Download</a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="section-projects">
+                        <h2>Projects</h2>
+                        <div class="file-grid">
+                            {% for file in projects %}
+                            <div class="file-card">
+                                <span class="file-name">{{ file }}</span>
+                                <a href="#" class="download-btn">Download</a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="section-reports">
+                        <h2>Reports</h2>
+                        <div class="file-grid">
+                            {% for file in reports %}
+                            <div class="file-card">
+                                <span class="file-name">{{ file }}</span>
+                                <a href="#" class="download-btn">Download</a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/student_details.js"></script>
+    
+    <!-- Optional: Add a loading indicator -->
+    <div id="loading-indicator" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Student Assessment System</title>
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-card">
+            <h2>Create Account</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="POST" id="signupForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" required>
+                        <span class="toggle-password" title="Show/Hide Password">👁️</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select name="role" id="role" required>
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                    </select>
+                </div>
+                <div class="form-group" id="branches_section">
+                    <label>Select Branches</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="branches" value="Mathematics"> Mathematics</label>
+                        <label><input type="checkbox" name="branches" value="Physics"> Physics</label>
+                        <label><input type="checkbox" name="branches" value="Chemistry"> Chemistry</label>
+                        <label><input type="checkbox" name="branches" value="Biology"> Biology</label>
+                        <label><input type="checkbox" name="branches" value="Computer Science"> Computer Science</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            <div class="form-footer">
+                <p>Already have an account? <a href="/login">Login</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/signup.js"></script>
+</body>
+</html>

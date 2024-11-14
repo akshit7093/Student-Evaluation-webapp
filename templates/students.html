@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students - {{ branch }} Year {{ year }}</title>
+    <base href="/">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="../static/css/students.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="{{ url_for('static', filename='js/student_full_view.js') }}" defer></script>
+</head>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a> >
+            {{ branch }} > Year {{ year }}
+        </nav>
+
+        <div class="students-header">
+            <h1>{{ branch }} - Year {{ year }}</h1>
+            <div class="header-controls">
+                <div class="search-box">
+                    <input type="text" id="studentSearch" placeholder="Search students...">
+                </div>
+                <select id="sortStudents">
+                    <option value="name">Sort by Name</option>
+                    <option value="enrollment">Sort by Enrollment</option>
+                </select>
+                <button onclick="exportStudentList()" class="export-btn">
+                    <i class="fas fa-download"></i> Export List
+                </button>
+            </div>
+        </div>
+
+        <div class="students-grid">
+            {% for student in students %}
+            <div class="student-card" id="card-{{ student.enrollment }}">
+                <div class="student-info">
+                    <h3>{{ student.personal_info.name }}</h3>
+                    <span class="enrollment">{{ student.enrollment }}</span>
+                    <p class="email">{{ student.personal_info.email }}</p>
+                    <p class="phone">{{ student.personal_info.phone }}</p>
+                </div>
+                <div class="card-actions">
+                    <button onclick="toggleDetails('{{ student.enrollment }}', '{{ student.academic_info.branch }}', '{{ student.academic_info.year }}')" class="view-btn">
+                        <i class="fas fa-chevron-down"></i> View Details
+                    </button>
+                    <a href="{{ url_for('student_full_view', enrollment=student.enrollment, branch=student.academic_info.branch, year=student.academic_info.year) }}" class="full-view-btn">
+                        <i class="fas fa-expand"></i> Full View
+                    </a>
+                </div>
+                <div class="student-details" id="details-{{ student.enrollment }}">
+                    <div class="details-content">
+                        <div class="academic-info">
+                            <h4>Academic Information</h4>
+                            <p>Branch: {{ student.academic_info.branch }}</p>
+                            <p>Year: {{ student.academic_info.year }}</p>
+                            <p>Semester: {{ student.academic_info.semester }}</p>
+                        </div>
+                        <div class="files-section">
+                            <div class="section-box assignments">
+                                <h4><i class="fas fa-tasks"></i> Assignments</h4>
+                                <div class="file-list" id="assignments-{{ student.enrollment }}"></div>
+                            </div>
+                            <div class="section-box projects">
+                                <h4><i class="fas fa-project-diagram"></i> Projects</h4>
+                                <div class="file-list" id="projects-{{ student.enrollment }}"></div>
+                            </div>
+                            <div class="section-box reports">
+                                <h4><i class="fas fa-file-alt"></i> Reports</h4>
+                                <div class="file-list" id="reports-{{ student.enrollment }}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="../static/js/students.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+    {
+        "username": "teacher1",
+        "teacher_id": "T101",
+        "password": "teacherpass1",
+        "role": "teacher",
+        "branches": ["Computer_Science"]
+    },
+    {
+        "username": "teacher2",
+        "teacher_id": "T102",
+        "password": "teacherpass2",
+        "role": "teacher",
+        "branches": ["Electronics"]
+    }
+]
