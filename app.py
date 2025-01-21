@@ -8,14 +8,14 @@ app.secret_key = 'b9834758947c498d62d88b91eeb9c'
 
 def load_admins():
     try:
-        with open('project/admins.json', 'r') as f:
+        with open('admins.json', 'r') as f:
             return json.load(f)
     except FileNotFoundError:
         return []
 
 def load_teachers():
     try:
-        with open('project/teachers.json', 'r') as f:
+        with open('teachers.json', 'r') as f:
             return json.load(f)
     except FileNotFoundError:
         return []
@@ -174,7 +174,7 @@ def dashboard():
     branches = []
     if session['role'] == 'admin':
         # Get all branches from student_database directory
-        branches = [d for d in os.listdir('project/student_database') if os.path.isdir(os.path.join('project/student_database', d))]
+        branches = [d for d in os.listdir('student_database') if os.path.isdir(os.path.join('student_database', d))]
     else:
         # Get only assigned branches for teacher
         branches = session['branches']
@@ -186,7 +186,7 @@ def dashboard():
 def view_branch(branch_name):
     # Convert spaces to underscores in branch name
     branch_path = branch_name.replace(' ', '_')
-    path = f'project/student_database/{branch_path}'
+    path = f'student_database/{branch_path}'
     years = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
     return render_template('branch.html', branch=branch_name, years=years)
 
@@ -196,14 +196,14 @@ def view_year(branch_name, year):
     if branch_name == "All Branches":
         # Get students from all accessible branches
         if session['role'] == 'admin':
-            branches = [d for d in os.listdir('project/student_database') 
-                       if os.path.isdir(os.path.join('project/student_database', d))]
+            branches = [d for d in os.listdir('student_database') 
+                       if os.path.isdir(os.path.join('student_database', d))]
         else:
             branches = [branch.replace(' ', '_') for branch in session.get('branches', [])]
         
         students = []
         for branch in branches:
-            branch_path = f'project/student_database/{branch}/{year}'
+            branch_path = f'student_database/{branch}/{year}'
             if os.path.exists(branch_path):
                 for enrollment in os.listdir(branch_path):
                     details_path = os.path.join(branch_path, enrollment, 'details.json')
@@ -214,7 +214,7 @@ def view_year(branch_name, year):
     else:
         # Get students from specific branch
         branch_path = branch_name.replace(' ', '_')
-        path = f'project/student_database/{branch_path}/{year}'
+        path = f'student_database/{branch_path}/{year}'
         students = []
         for enrollment in os.listdir(path):
             details_path = os.path.join(path, enrollment, 'details.json')
@@ -229,7 +229,7 @@ def view_year(branch_name, year):
 @app.route('/api/student_files/<branch>/<year>/<enrollment>')
 @login_required
 def get_student_files(branch, year, enrollment):
-    student_path = f'project/student_database/{branch}/{year}/{enrollment}'
+    student_path = f'student_database/{branch}/{year}/{enrollment}'
     
     files = {
         'assignments': os.listdir(os.path.join(student_path, 'assignments')),
@@ -242,7 +242,7 @@ def get_student_files(branch, year, enrollment):
 @app.route('/download/<path:filename>')
 @login_required
 def download_file(filename):
-    return send_from_directory('project/student_database', filename, as_attachment=True)
+    return send_from_directory('student_database', filename, as_attachment=True)
 
 
 
@@ -250,8 +250,8 @@ def download_file(filename):
 @login_required
 def all_students():
     if session['role'] == 'admin':
-        branches = [d for d in os.listdir('project/student_database') 
-                   if os.path.isdir(os.path.join('project/student_database', d))]
+        branches = [d for d in os.listdir('student_database') 
+                   if os.path.isdir(os.path.join('student_database', d))]
         current_branch = "All Branches"
         current_year = "All Years"
     else:
@@ -262,7 +262,7 @@ def all_students():
     
     students = []
     for branch in branches:
-        branch_path = f'project/student_database/{branch}'
+        branch_path = f'student_database/{branch}'
         years = [y for y in os.listdir(branch_path) 
                 if os.path.isdir(os.path.join(branch_path, y))]
         
@@ -288,7 +288,7 @@ def all_students():
 def student_full_view(enrollment, branch, year):
     # Convert spaces to underscores in branch name
     branch_path = branch.replace(' ', '_')
-    student_path = f'project/student_database/{branch_path}/{year}/{enrollment}'
+    student_path = f'student_database/{branch_path}/{year}/{enrollment}'
     
     # Load student details
     with open(os.path.join(student_path, 'details.json'), 'r') as f:
@@ -315,7 +315,7 @@ def upload_page():
 @app.route('/get_students/<branch>/<year>')
 @login_required
 def get_students(branch, year):
-    student_path = f'project/student_database/{branch}/{year}'
+    student_path = f'student_database/{branch}/{year}'
     students = []
     for enrollment in os.listdir(student_path):
         with open(os.path.join(student_path, enrollment, 'details.json')) as f:
@@ -333,7 +333,7 @@ def upload_files():
     section = request.form.get('section')  # assignments, projects, or reports
     files = request.files.getlist('files')
     
-    student_path = f'project/student_database/{enrollment}/{section}'
+    student_path = f'student_database/{enrollment}/{section}'
     
     uploaded_files = []
     for file in files:
@@ -352,7 +352,7 @@ def upload_files():
 @app.route('/student/<branch>/<year>/<enrollment>')
 @login_required
 def view_student(branch, year, enrollment):
-    student_path = f'project/student_database/{branch}/{year}/{enrollment}'
+    student_path = f'student_database/{branch}/{year}/{enrollment}'
     
     # Load student details
     with open(os.path.join(student_path, 'details.json'), 'r') as f:
