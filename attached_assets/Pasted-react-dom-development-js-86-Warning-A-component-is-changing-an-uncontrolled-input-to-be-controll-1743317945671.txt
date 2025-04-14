@@ -1,0 +1,26 @@
+react-dom.development.js:86 
+ Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+    at input
+    at div
+    at https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/ui/form.tsx:71:6
+    at Controller (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…nner/workspace/node_modules/.vite/deps/chunk-YABUFNLM.js?v=149109fe:313:35)
+    at FormField (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/ui/form.tsx:32:6)
+    at div
+    at div
+    at form
+    at FormProvider (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…nner/workspace/node_modules/.vite/deps/chunk-YABUFNLM.js?v=149109fe:102:11)
+    at div
+    at main
+    at div
+    at div
+    at DashboardLayout (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/dashboard-layout.tsx:27:43)
+    at NewStudent (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/pages/student-new.tsx:63:24)
+    at ProtectedRoute (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/App.tsx?v=hfrOMVq4H-IfG1IeZ_b4f:63:38)
+    at Route (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=149109fe:323:16)
+    at Switch (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=149109fe:379:17)
+    at ErrorBoundary (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/error-boundary.tsx:9:5)
+    at QueryClientProvider (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=149109fe:2805:3)
+    at App (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/App.tsx?v=hfrOMVq4H-IfG1IeZ_b4f:100:53)
+    at ErrorBoundary (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/error-boundary.tsx?v=hfrOMVq4H-IfG1IeZ_b4f:9:5)
+﻿
+

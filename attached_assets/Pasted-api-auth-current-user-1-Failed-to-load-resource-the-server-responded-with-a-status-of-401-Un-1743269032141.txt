@@ -1,0 +1,78 @@
+api/auth/current-user:1 
+ 
+ Failed to load resource: the server responded with a status of 401 (Unauthorized)
+login.tsx:77 Attempting login with: ghost
+auth.ts:58 Login successful: 
+Object
+login.tsx:47 Already authenticated, redirecting to dashboard
+auth.ts:153 Auth check successful: 
+Object
+react-dom.development.js:86 
+ Warning: React has detected a change in the order of Hooks called by CenterDetails. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://reactjs.org/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+1. useContext                 useContext
+2. useContext                 useContext
+3. useContext                 useContext
+4. useEffect                  useEffect
+5. useState                   useState
+6. useCallback                useCallback
+7. useSyncExternalStore       useSyncExternalStore
+8. useEffect                  useEffect
+9. useContext                 useContext
+10. useContext                useContext
+11. useContext                useContext
+12. useEffect                 useEffect
+13. useState                  useState
+14. useCallback               useCallback
+15. useSyncExternalStore      useSyncExternalStore
+16. useEffect                 useEffect
+17. useContext                useContext
+18. useContext                useContext
+19. useContext                useContext
+20. useEffect                 useEffect
+21. useState                  useState
+22. useCallback               useCallback
+23. useSyncExternalStore      useSyncExternalStore
+24. useEffect                 useEffect
+25. undefined                 useContext
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    at CenterDetails (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/dashboard/center-details.tsx:24:26)
+    at div
+    at main
+    at div
+    at div
+    at DashboardLayout (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/layout/dashboard-layout.tsx:23:28)
+    at Dashboard (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/pages/dashboard.tsx:32:47)
+    at ProtectedRoute (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/App.tsx?v=zSL9213SSmbWnI79nt_oz:56:38)
+    at Route (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=8417234a:323:16)
+    at Switch (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=8417234a:379:17)
+    at QueryClientProvider (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=8417234a:2805:3)
+    at App (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/App.tsx?v=zSL9213SSmbWnI79nt_oz:90:53)
+2
+react-dom.development.js:15688 
+ Uncaught Error: Rendered more hooks than during the previous render.
+    at CenterDetails (center-details.tsx:81:42)
+react-dom.development.js:18704 
+ The above error occurred in the <CenterDetails> component:
+
+    at CenterDetails (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/dashboard/center-details.tsx:24:26)
+    at div
+    at main
+    at div
+    at div
+    at DashboardLayout (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/components/layout/dashboard-layout.tsx:23:28)
+    at Dashboard (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/pages/dashboard.tsx:32:47)
+    at ProtectedRoute (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/App.tsx?v=zSL9213SSmbWnI79nt_oz:56:38)
+    at Route (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=8417234a:323:16)
+    at Switch (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=8417234a:379:17)
+    at QueryClientProvider (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit…rkspace/node_modules/.vite/deps/@tanstack_react-query.js?v=8417234a:2805:3)
+    at App (https://d3536ed2-29fc-4d49-b252-b94de89768ec-00-1hozst2lursxo.picard.replit.dev/src/App.tsx?v=zSL9213SSmbWnI79nt_oz:90:53)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+react-dom.development.js:12056 
+ Uncaught Error: Rendered more hooks than during the previous render.
+    at CenterDetails (center-details.tsx:81:42)
